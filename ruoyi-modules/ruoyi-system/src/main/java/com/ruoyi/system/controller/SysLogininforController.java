@@ -38,10 +38,10 @@ public class SysLogininforController extends BaseController
     @Autowired
     private RedisService redisService;
 
+    // 获取登录日志列表
     @RequiresPermissions("system:logininfor:list")
     @GetMapping("/list")
-    public TableDataInfo list(SysLogininfor logininfor)
-    {
+    public TableDataInfo list(SysLogininfor logininfor) {
         startPage();
         List<SysLogininfor> list = logininforService.selectLogininforList(logininfor);
         return getDataTable(list);
